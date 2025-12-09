@@ -4,7 +4,7 @@ Api for Rolling Scopes School task "Async Race".
 ## Setup and Running
 
 - Use `node 14.x` or higher.
-- Clone this repo: `$ git clone https://github.com/mikhama/async-race-api.git`.
+- Clone this repo: `$ git clone https://github.com/Mxmmsv/async-race-api.git`.
 - Go to downloaded folder: `$ cd async-race-api`.
 - Install dependencies: `$ npm install`.
 - Start server: `$ npm start`.
@@ -13,20 +13,21 @@ Api for Rolling Scopes School task "Async Race".
 ## Usage
 
 - **Garage**
-    - [Get Cars](https://github.com/mikhama/async-race-api#get-cars)
-    - [Get Car](https://github.com/mikhama/async-race-api#get-car)
-    - [Create Car](https://github.com/mikhama/async-race-api#create-car)
-    - [Delete Car](https://github.com/mikhama/async-race-api#delete-car)
-    - [Update Car](https://github.com/mikhama/async-race-api#update-car)
+    - [Get Cars](https://github.com/Mxmmsv/async-race-api#get-cars)
+    - [Get Car](https://github.com/Mxmmsva/async-race-api#get-car)
+    - [Create Car](https://github.com/Mxmmsv/async-race-api#create-car)
+    - [Delete Car](https://github.com/Mxmmsv/async-race-api#delete-car)
+    - [Update Car](https://github.com/Mxmmsv/async-race-api#update-car)
+    - [Delete All Cars](https://github.com/Mxmmsv/async-race-api#delete-all-cars)
 - **Engine**
-    - [Start / Stop Car's Engine](https://github.com/mikhama/async-race-api#start--stop-cars-engine)
-    - [Switch Car's Engine to Drive Mode](https://github.com/mikhama/async-race-api#switch-cars-engine-to-drive-mode)
+    - [Start / Stop Car's Engine](https://github.com/Mxmmsv/async-race-api#start--stop-cars-engine)
+    - [Switch Car's Engine to Drive Mode](https://github.com/Mxmmsv/async-race-api#switch-cars-engine-to-drive-mode)
 - **Winners**
-    - [Get Winners](https://github.com/mikhama/async-race-api#get-winners)
-    - [Get Winner](https://github.com/mikhama/async-race-api#get-winner)
-    - [Create Winner](https://github.com/mikhama/async-race-api#create-winner)
-    - [Delete Winner](https://github.com/mikhama/async-race-api#delete-winner)
-    - [Update Winner](https://github.com/mikhama/async-race-api#update-winner)
+    - [Get Winners](https://github.com/Mxmmsv/async-race-api#get-winners)
+    - [Get Winner](https://github.com/Mxmmsv/async-race-api#get-winner)
+    - [Create Winner](https://github.com/Mxmmsv/async-race-api#create-winner)
+    - [Delete Winner](https://github.com/Mxmmsv/async-race-api#delete-winner)
+    - [Update Winner](https://github.com/Mxmmsv/async-race-api#update-winner)
 
 **Get Cars**
 ----
@@ -322,6 +323,59 @@ Updates attributes of specified car.
 * **Notes:**
 
     None
+
+</details>
+
+**Delete All Cars**
+----
+Deletes all cars from the garage.
+
+<details>
+
+* **URL**
+
+    /garage
+
+* **Method:**  
+
+    `DELETE`
+
+* **Headers:**  
+
+    None
+
+*  **URL Params**  
+
+    None
+
+* **Query Params**  
+
+    None
+
+* **Data Params**  
+
+    None
+
+* **Success Response:**  
+
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+      {}
+    ```  
+
+* **Error Response:**  
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** 
+    ```json
+      { "error": "Failed to delete all cars" }
+    ```
+
+* **Notes:**  
+
+    - This will remove **all cars** from the garage.
+    - Use with caution, as this action cannot be undone.
 
 </details>
 
