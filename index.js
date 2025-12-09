@@ -1,7 +1,69 @@
 const jsonServer = require("json-server");
 
+const db = {
+  garage: [
+    {
+      name: "Tesla",
+      color: "#e6e6fa",
+      id: 1,
+    },
+    {
+      name: "BMW",
+      color: "#fede00",
+      id: 2,
+    },
+    {
+      name: "Mersedes",
+      color: "#6c779f",
+      id: 3,
+    },
+    {
+      name: "Ford",
+      color: "#ef3c40",
+      id: 4,
+    },
+    {
+      name: "Ferrari",
+      color: "#ff0000",
+      id: 5,
+    },
+    {
+      name: "Audi",
+      color: "#8a8a8a",
+      id: 6,
+    },
+    {
+      name: "Honda",
+      color: "#008000",
+      id: 7,
+    },
+    {
+      name: "Toyota",
+      color: "#1e90ff",
+      id: 8,
+    },
+    {
+      name: "Porsche",
+      color: "#ffdead",
+      id: 9,
+    },
+    {
+      name: "Chevrolet",
+      color: "#ffd700",
+      id: 10,
+    },
+  ],
+  winners: [
+    {
+      id: 1,
+      wins: 1,
+      time: 10,
+    },
+  ],
+};
+
 const server = jsonServer.create();
-const router = jsonServer.router("db.json");
+const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
 const PORT = process.env.PORT || 3000;
