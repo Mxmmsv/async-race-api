@@ -1,39 +1,7 @@
 const jsonServer = require('json-server');
 
-const db = {
-    garage: [
-        {
-            "name": "Tesla",
-            "color": "#e6e6fa",
-            "id": 1,
-        },
-        {
-            "name": "BMW",
-            "color": "#fede00",
-            "id": 2,
-        },
-        {
-            "name": "Mersedes",
-            "color": "#6c779f",
-            "id": 3,
-        },
-        {
-            "name": "Ford",
-            "color": "#ef3c40",
-            "id": 4,
-        },
-    ],
-    winners: [
-        {
-            id: 1,
-            wins: 1,
-            time: 10,
-        }
-    ]
-};
-
 const server = jsonServer.create();
-const router = jsonServer.router(db);
+const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 const PORT = process.env.PORT || 3000;
@@ -109,6 +77,12 @@ server.patch('/engine', (req, res) => {
         setTimeout(() => res.header('Content-Type', 'application/json').status(200).send(JSON.stringify({ velocity, distance })), x);
     }
 });
+
+server.delete('/garage', (req, res) => {
+    const db = router.db
+    db.set('garage', []).write()
+    res.status(200).json({ message: 'All cars removed' })
+})
 
 server.use(router);
 server.listen(PORT, () => {
