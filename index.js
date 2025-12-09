@@ -85,9 +85,13 @@ server.patch("/engine", (req, res) => {
 });
 
 server.delete("/garage", (req, res) => {
-  const db = router.db;
-  db.set("garage", []).write();
-  res.status(200).json({ message: "All cars removed" });
+  try {
+    const db = router.db;
+    db.set("garage", []).write();
+    res.status(200).json({});
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete all cars" });
+  }
 });
 
 server.use(router);
